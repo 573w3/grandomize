@@ -1,0 +1,16 @@
+{
+  "english": {
+    "first": {
+      "female": ["Alice"],
+      "male": ["Adam"]
+    },
+    "last": ["Alison"]
+  },
+  "swedish": {
+    "first": {
+      "female": ["Anna"],
+      "male": ["Adam"]
+    },
+    "last": ["Andersson"]
+  }
+}
