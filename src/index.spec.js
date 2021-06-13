@@ -1,7 +1,7 @@
-const grandom = require("./index");
+const grandomize = require("./index");
 
 describe("Index:", () => {
   it("Module is exported", () => {
-    expect(grandom).toBeDefined();
+    expect(grandomize).toBeDefined();
   });
 });

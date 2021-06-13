@@ -2,12 +2,12 @@
 
 const names = require("./names");
 
-const grandom = {
+const grandomize = {
   firstNames: names.firstNames,
   lastNames: names.lastNames,
 };
 
 module.exports = {
-  grandom,
-  default: grandom,
+  grandomize,
+  default: grandomize,
 };

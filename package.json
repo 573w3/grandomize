@@ -1,12 +1,15 @@
 {
-  "name": "grandom",
+  "name": "grandomize",
   "version": "0.1.0",
   "type": "commonjs",
   "description": "Randomizer module.",
   "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "jest --verbose",
-    "build": "rm -rf dist && mkdir dist && cp -r assets dist && cp src/index.js dist && cp src/names.js dist && cp src/random.js dist",
+    "dist": "rm -rf dist && mkdir dist && cp -r assets dist && cp src/index.js dist && cp src/names.js dist && cp src/random.js dist",
     "clean": "rm -rf node_modules && rm package-lock.json"
   },
   "author": "Stefan Gerdin",
