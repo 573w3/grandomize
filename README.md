@@ -1,11 +1,29 @@
-# Test
+# Grandomize
 
-Uses Jest.
+Use to generate mock data, like personal details.
 
-[List of expect functions.](https://jestjs.io/docs/expect)
+## Usage
 
-To run: `npm run test`
+Import and start generating data.
 
-# Build
+**Example:**
 
-`npm run build`
+```javascript
+const grandomize = require("grandomize");
+
+const language = grandomize.english;
+const nrOfNames = 2;
+const gender = "male";
+
+const twoMalesNames = grandomize.firstNames(language, nrOfNames, gender);
+const twoMaleAndOrFemaleNames = grandomize.firstNames(language, nrOfNames);
+const oneMaleAndOrFemaleNames = grandomize.firstNames(language);
+```
+
+## API
+
+`firstNames`
+
+`lastNames`
+
+`languages`
