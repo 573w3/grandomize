@@ -1,5 +1,5 @@
 const names = require("./names");
-const english = names.languages.english;
+const english = require("./languages").english;
 
 // first
 describe("firstNames()", () => {

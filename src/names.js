@@ -1,34 +1,6 @@
-const data = require("../assets/names.json");
+const getLocalizedAssets = require("./assetLoader");
+const sanitizeCount = require("./utils").sanitizeCount;
 const random = require("./random");
-
-/**
- * Languages known by grandomize.
- */
-const languages = {
-  english: "en",
-  swedish: "se",
-};
-
-const MAX = 1000000; // one million
-
-function getLocalizedNames(lang) {
-  switch (lang) {
-    case languages.english:
-      return data.english;
-    case languages.swedish:
-      return data.swedish;
-    default:
-      throw 'Unknown language: "' + lang + '"';
-  }
-}
-
-function sanitizeCount(count) {
-  if (!count || count < 1) {
-    return 1;
-  }
-
-  return Math.min(count, MAX);
-}
 
 /**
  * Gets a list of random first names.
@@ -42,12 +14,12 @@ function sanitizeCount(count) {
  */
 const firstNames = (language, count, gender) => {
   count = sanitizeCount(count);
-  const firstNames = getLocalizedNames(language).first;
+  const firstNames = getLocalizedAssets(language).first;
 
   let genderNames;
-  if (gender === languages.female) {
+  if (gender === "female") {
     genderNames = firstNames.female;
-  } else if (gender === languages.male) {
+  } else if (gender === "male") {
     genderNames = firstNames.male;
   } else {
     gender = undefined;
@@ -79,7 +51,7 @@ const firstNames = (language, count, gender) => {
  */
 const lastNames = (language, count) => {
   count = sanitizeCount(count);
-  const lastNames = getLocalizedNames(language).last;
+  const lastNames = getLocalizedAssets(language).last;
 
   const names = [];
   for (let i = 0; i < count; i++) {
@@ -92,4 +64,3 @@ const lastNames = (language, count) => {
 
 exports.firstNames = firstNames;
 exports.lastNames = lastNames;
-exports.languages = languages;
