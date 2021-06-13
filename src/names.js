@@ -1,51 +1,64 @@
 const data = require("../assets/names.json");
 const random = require("./random");
 
+/**
+ * Languages known by grandom.
+ */
+const languages = {
+  english: "en",
+  swedish: "se",
+};
+
 const MAX = 1000000; // one million
 
-function getNames(lang) {
+function getLocalizedNames(lang) {
   switch (lang) {
-    case "en":
+    case languages.english:
       return data.english;
-    case "sv":
+    case languages.swedish:
       return data.swedish;
     default:
       throw 'Unknown language: "' + lang + '"';
   }
 }
 
+function sanitizeCount(count) {
+  if (!count || count < 1) {
+    return 1;
+  }
+
+  return Math.min(count, MAX);
+}
+
 /**
  * Gets a list of random first names.
- * @param {string} lang Language in which the names are common.
- * @param {number | undefined} nr The number of names to randomize.
+ * @param {string} language Language in which the names are common.
+ * @param {number | undefined} count The number of names to randomize.
  * Defaults to 1.
  * Cap is 1 000 000.
  * @param {"male" | "female" | undefined} gender Gender of names.
  * Is randomized for each name if left out.
  * @returns An array of names.
  */
-exports.getRandomFirstNames = (lang, nr, gender) => {
-  if (!nr || nr < 1) {
-    nr = 1;
-  }
-  nr = Math.min(nr, MAX);
-
-  let firstNames = getNames(lang).first;
+const firstNames = (language, count, gender) => {
+  count = sanitizeCount(count);
+  const firstNames = getLocalizedNames(language).first;
 
   let genderNames;
-  if (gender === "female") {
+  if (gender === languages.female) {
     genderNames = firstNames.female;
-  } else if (gender === "male") {
+  } else if (gender === languages.male) {
     genderNames = firstNames.male;
   } else {
     gender = undefined;
   }
 
   const names = [];
-  for (let i = 0; i < nr; i++) {
+  for (let i = 0; i < count; i++) {
     if (!gender) {
-      genderNames =
-        random.randomInt(1) === 1 ? firstNames.female : firstNames.male;
+      genderNames = random.randomBoolean()
+        ? firstNames.female
+        : firstNames.male;
     }
 
     const randomIndex = random.randomInt(genderNames.length - 1);
@@ -55,3 +68,28 @@ exports.getRandomFirstNames = (lang, nr, gender) => {
 
   return names;
 };
+
+/**
+ * Gets a list of random last names.
+ * @param {string} language Language in which the names are common.
+ * @param {number} count The number of names to randomize.
+ * Defaults to 1.
+ * Cap is 1 000 000.
+ * @returns An array of names.
+ */
+const lastNames = (language, count) => {
+  count = sanitizeCount(count);
+  const lastNames = getLocalizedNames(language).last;
+
+  const names = [];
+  for (let i = 0; i < count; i++) {
+    const randomIndex = random.randomInt(lastNames.length - 1);
+    names.push(lastNames[randomIndex]);
+  }
+
+  return names;
+};
+
+exports.firstNames = firstNames;
+exports.lastNames = lastNames;
+exports.languages = languages;

@@ -2,12 +2,12 @@
 
 const names = require("./names");
 
-const languages = {
-  english: "en",
-  swedish: "se",
+const grandom = {
+  firstNames: names.firstNames,
+  lastNames: names.lastNames,
 };
 
-console.log("Hello World!");
-console.log(names.getRandomFirstNames(languages.english)[0]);
-
-exports.grandom = names.getRandomFirstNames;
+module.exports = {
+  grandom,
+  default: grandom,
+};

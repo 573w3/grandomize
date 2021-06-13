@@ -4,7 +4,7 @@ Uses Jest.
 
 [List of expect functions.](https://jestjs.io/docs/expect)
 
-To run `npm run test`
+To run: `npm run test`
 
 # Build
 
