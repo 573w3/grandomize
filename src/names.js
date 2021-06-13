@@ -2,7 +2,7 @@ const data = require("../assets/names.json");
 const random = require("./random");
 
 /**
- * Languages known by grandom.
+ * Languages known by grandomize.
  */
 const languages = {
   english: "en",
