@@ -7,7 +7,4 @@ const grandomize = {
   lastNames: names.lastNames,
 };
 
-module.exports = {
-  grandomize,
-  default: grandomize,
-};
+module.exports = grandomize;
