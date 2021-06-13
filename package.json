@@ -5,11 +5,12 @@
   "description": "Randomizer module.",
   "main": "dist/index.js",
   "files": [
-    "dist"
+    "dist",
+    "assets"
   ],
   "scripts": {
     "test": "jest --verbose",
-    "dist": "rm -rf dist && mkdir dist && cp -r assets dist && cp src/index.js dist && cp src/names.js dist && cp src/random.js dist",
+    "dist": "rm -rf dist && mkdir dist && cp src/index.js dist && cp src/names.js dist && cp src/random.js dist && npm pack --dry-run",
     "clean": "rm -rf node_modules && rm package-lock.json"
   },
   "author": "Stefan Gerdin",
