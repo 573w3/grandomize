@@ -17,7 +17,7 @@ const gender = "male";
 
 const twoMaleNames = grandomize.firstNames(language, nrOfNames, gender);
 const twoMaleAndOrFemaleNames = grandomize.firstNames(language, nrOfNames);
-const oneMaleAndOrFemaleNames = grandomize.firstNames(language);
+const oneMaleOrFemaleName = grandomize.firstNames(language);
 ```
 
 ## API
