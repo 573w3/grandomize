@@ -1,7 +1,6 @@
-const assets = require("../assets/names.json");
 const languages = require("./languages");
 
-const getLocalizedAssets = (language) => {
+const getLocalizedAssets = (language, assets) => {
   switch (language) {
     case languages.english:
       return assets.english;
