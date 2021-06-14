@@ -1,3 +1,4 @@
+const assets = require("../assets/names.json");
 const getLocalizedAssets = require("./assetLoader");
 const sanitizeCount = require("./utils").sanitizeCount;
 const random = require("./random");
@@ -14,7 +15,7 @@ const random = require("./random");
  */
 const firstNames = (language, count, gender) => {
   count = sanitizeCount(count);
-  const firstNames = getLocalizedAssets(language).first;
+  const firstNames = getLocalizedAssets(language, assets).first;
 
   let genderNames;
   if (gender === "female") {
@@ -51,7 +52,7 @@ const firstNames = (language, count, gender) => {
  */
 const lastNames = (language, count) => {
   count = sanitizeCount(count);
-  const lastNames = getLocalizedAssets(language).last;
+  const lastNames = getLocalizedAssets(language, assets).last;
 
   const names = [];
   for (let i = 0; i < count; i++) {
