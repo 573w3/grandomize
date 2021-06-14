@@ -12,8 +12,12 @@
     "test": "npm run test:jest && npm run test:visual",
     "test:jest": "jest --verbose",
     "test:visual": "node visual.test.js",
-    "dist": "rm -rf dist && mkdir dist && cp src/index.js dist && cp src/names.js dist && cp src/random.js dist && cp src/addresses.js dist && cp src/assetLoader.js dist && cp src/languages.js dist && cp src/utils.js dist && npm pack --dry-run",
+    "build": "rm -rf dist && mkdir dist && cp src/index.js dist && cp src/names.js dist && cp src/random.js dist && cp src/addresses.js dist && cp src/assetLoader.js dist && cp src/languages.js dist && cp src/utils.js dist && npm pack --dry-run",
     "clean": "rm -rf node_modules && rm package-lock.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/573w3/grandomize.git"
   },
   "author": "Stefan Gerdin",
   "license": "ISC",
