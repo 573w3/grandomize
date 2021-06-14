@@ -1,7 +1,9 @@
+"use strict";
+
 const random = require("./random");
-const { sanitizeCount } = require("./utils");
-const getLocalizedAssets = require("./assetLoader");
-const assets = require("../assets/streets.json");
+const genericRandomizer = require("./genericRandomizer");
+const streetAssets = require("../assets/streets.json");
+const cityAssets = require("../assets/cities.json");
 const languages = require("./languages");
 
 /**
@@ -11,17 +13,7 @@ const languages = require("./languages");
  * @returns An array of street names.
  */
 const streets = (language, count) => {
-  const streets = getLocalizedAssets(language, assets);
-
-  count = sanitizeCount(count);
-
-  const randomStreets = [];
-  for (let i = 0; i < count; i++) {
-    const randomIndex = random.randomInt(streets.length - 1);
-    randomStreets.push(streets[randomIndex]);
-  }
-
-  return randomStreets;
+  return genericRandomizer(language, count, streetAssets);
 };
 
 /**
@@ -54,5 +46,16 @@ const addresses = (language, count) => {
   return randomStreets;
 };
 
+/**
+ * Gets a list of random city names.
+ * @param {string} language Language in which the cities are common.
+ * @param {number} count Number of citis generated.
+ * @returns An array of city names.
+ */
+const cities = (language, count) => {
+  return genericRandomizer(language, count, cityAssets);
+};
+
 exports.streets = streets;
 exports.addresses = addresses;
+exports.cities = cities;

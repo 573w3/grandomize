@@ -2,7 +2,7 @@ const random = require("./src/random");
 const names = require("./src/names");
 const english = require("./src/languages").english;
 const swedish = require("./src/languages").swedish;
-const address = require("./src/addresses");
+const locations = require("./src/locations");
 
 function testRandom() {
   const count = 100;
@@ -41,7 +41,7 @@ function testLastNames() {
 
 function testStreets() {
   const count = 10;
-  const randomStreets = address.streets(english, count);
+  const randomStreets = locations.streets(english, count);
   console.debug(
     count + ' random streets in language "' + english + '":',
     randomStreets
@@ -50,10 +50,19 @@ function testStreets() {
 
 function testAddresses() {
   const count = 10;
-  const randomAddresses = address.addresses(english, count);
+  const randomAddresses = locations.addresses(english, count);
   console.debug(
     count + ' random addresses in language "' + english + '":',
     randomAddresses
+  );
+}
+
+function testCities() {
+  const count = 10;
+  const randomCities = locations.cities(english, count);
+  console.debug(
+    count + ' random cities in language "' + english + '":',
+    randomCities
   );
 }
 
@@ -71,3 +80,6 @@ testStreets();
 
 console.log("Testing addresses():");
 testAddresses();
+
+console.log("Testing cities():");
+testCities();
