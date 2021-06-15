@@ -1,5 +1,5 @@
 const assets = require("../assets/names.json");
-const getLocalizedAssets = require("./assetLoader");
+const getLocalizedAssets = require("./assetLoader").getLocalizedAssets;
 const sanitizeCount = require("./utils").sanitizeCount;
 const random = require("./random");
 

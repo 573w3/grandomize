@@ -2,10 +2,10 @@
 
 const random = require("./random");
 const { sanitizeCount } = require("./utils");
-const getLocalizedAssets = require("./assetLoader");
+const assetLoader = require("./assetLoader");
 
 const genericRandomizer = (language, count, assets) => {
-  const localizedAssets = getLocalizedAssets(language, assets);
+  const localizedAssets = assetLoader.getLocalizedAssets(language, assets);
   count = sanitizeCount(count);
 
   const randomValues = [];
@@ -17,4 +17,19 @@ const genericRandomizer = (language, count, assets) => {
   return randomValues;
 };
 
-module.exports = genericRandomizer;
+const genericRandomizerAsync = (language, count, assetsUrl) => {
+  return new Promise((resolve, reject) => {
+    assetLoader.getRemoteAssets(assetsUrl).then(
+      (json) => {
+        const randomStreets = genericRandomizer(language, count, json);
+        resolve(randomStreets);
+      },
+      (error) => {
+        reject(error);
+      }
+    );
+  });
+};
+
+exports.genericRandomizer = genericRandomizer;
+exports.genericRandomizerAsync = genericRandomizerAsync;

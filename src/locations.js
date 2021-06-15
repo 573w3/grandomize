@@ -1,7 +1,7 @@
 "use strict";
 
 const random = require("./random");
-const genericRandomizer = require("./genericRandomizer");
+const generic = require("./genericRandomizer");
 const streetAssets = require("../assets/streets.json");
 const cityAssets = require("../assets/cities.json");
 const languages = require("./languages");
@@ -9,11 +9,22 @@ const languages = require("./languages");
 /**
  * Gets a list of random street names.
  * @param {string} language Language in which the names are common.
- * @param {number} count Number of streets generated.
- * @returns An array of street names.
+ * @param {number?} count Number of streets generated. Defaults to 1.
+ * @returns {string[]} An array of street names.
  */
 const streets = (language, count) => {
-  return genericRandomizer(language, count, streetAssets);
+  return generic.genericRandomizer(language, count, streetAssets);
+};
+
+/**
+ * Gets a list of random street names.
+ * @param {string} language Language in which the names are common.
+ * @param {number?} count Number of streets generated. Defaults to 1.
+ * @param {string?} assetsUrl URL to a street assets file.
+ * @returns {Promise<string[]>} Promise for an array of street names.
+ */
+const streetsAsync = (language, count, assetsUrl) => {
+  return generic.genericRandomizerAsync(language, count, assetsUrl);
 };
 
 /**
@@ -50,10 +61,10 @@ const addresses = (language, count) => {
  * Gets a list of random city names.
  * @param {string} language Language in which the cities are common.
  * @param {number} count Number of citis generated.
- * @returns An array of city names.
+ * @returns {string[]} An array of city names.
  */
 const cities = (language, count) => {
-  return genericRandomizer(language, count, cityAssets);
+  return generic.genericRandomizer(language, count, cityAssets);
 };
 
 exports.streets = streets;

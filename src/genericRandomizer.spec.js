@@ -1,4 +1,4 @@
-const genericRandomizer = require("./genericRandomizer");
+const genericRandomizer = require("./genericRandomizer").genericRandomizer;
 const english = require("./languages").english;
 const streets = require("../assets/streets.json");
 
