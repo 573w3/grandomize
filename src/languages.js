@@ -1,9 +1,9 @@
 /**
- * Languages known by grandomize.
+ * Languages natively supported by grandomize.
  */
 const languages = {
-  english: "en",
-  swedish: "sv",
+  english: "english",
+  swedish: "swedish",
 };
 
 module.exports = languages;

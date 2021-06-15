@@ -1,16 +1,4 @@
-const languages = require("./languages");
 const https = require("https");
-
-const getLocalizedAssets = (language, assets) => {
-  switch (language) {
-    case languages.english:
-      return assets.english;
-    case languages.swedish:
-      return assets.swedish;
-    default:
-      throw 'Unknown language: "' + language + '"';
-  }
-};
 
 const getRemoteAssets = (url) => {
   return new Promise((resolve, reject) => {
@@ -33,5 +21,4 @@ const getRemoteAssets = (url) => {
   });
 };
 
-exports.getLocalizedAssets = getLocalizedAssets;
 exports.getRemoteAssets = getRemoteAssets;

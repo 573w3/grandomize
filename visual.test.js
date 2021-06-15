@@ -3,6 +3,7 @@ const names = require("./src/names");
 const english = require("./src/languages").english;
 const swedish = require("./src/languages").swedish;
 const locations = require("./src/locations");
+const grandomize = require("./src/index");
 
 function testRandom() {
   const count = 100;
@@ -41,7 +42,7 @@ function testLastNames() {
 
 function testStreets() {
   const count = 10;
-  const randomStreets = locations.streets(english, count);
+  const randomStreets = grandomize.streets(english, count);
   console.debug(
     count + ' random streets in language "' + english + '":',
     randomStreets
@@ -59,7 +60,7 @@ function testAddresses() {
 
 function testCities() {
   const count = 10;
-  const randomCities = locations.cities(english, count);
+  const randomCities = grandomize.cities(english, count);
   console.debug(
     count + ' random cities in language "' + english + '":',
     randomCities
