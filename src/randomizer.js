@@ -6,13 +6,18 @@ const assetLoader = require("./assetLoader");
 
 /**
  * @param {any} assets
- * @param {string?} language
+ * @param {string[] | string | null} path
  * @param {number?} count
  * @returns {string[]}
  */
-const randomize = (assets, language, count) => {
-  if (language) {
-    assets = assets[language];
+const randomize = (assets, path, count) => {
+  if (path) {
+    if (typeof path === "string") {
+      path = [path];
+    }
+    for (let i = 0; i < path.length; i++) {
+      assets = assets[path[i]];
+    }
   }
   count = sanitizeCount(count);
 
@@ -27,15 +32,15 @@ const randomize = (assets, language, count) => {
 
 /**
  * @param {string} assetsUrl
- * @param {string?} language
+ * @param {string[] | string | null} path
  * @param {number?} count
  * @returns {Promise<string[]>}
  */
-const randomizeAsync = (assetsUrl, language, count) => {
+const randomizeAsync = (assetsUrl, path, count) => {
   return new Promise((resolve, reject) => {
     assetLoader.getRemoteAssets(assetsUrl).then(
       (json) => {
-        resolve(randomize(json, language, count));
+        resolve(randomize(json, path, count));
       },
       (error) => {
         reject(error);
