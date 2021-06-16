@@ -10,6 +10,14 @@ describe("firstNames()", () => {
 });
 
 describe("firstNames()", () => {
+  test("Generate correct number of names of a gender", () => {
+    const count = 1000;
+    let randomNames = names.firstNames(english, count, "male");
+    expect(randomNames.length).toEqual(count);
+  });
+});
+
+describe("firstNames()", () => {
   test("Random names are strings", () => {
     const count = 1000;
     let randomNames = names.firstNames(english, count);

@@ -1,6 +1,22 @@
-const assets = require("../assets/names.json");
+const firstNamesData = require("../assets/firstNames.json");
 const sanitizeCount = require("./utils").sanitizeCount;
 const random = require("./random");
+const randomizer = require("./randomizer");
+
+const FEMALE_GENDER = "female";
+const MALE_GENDER = "male";
+
+function randomGender(count, language) {
+  count = sanitizeCount(count);
+  const names = [];
+  for (let i = 0; i < count; i++) {
+    let gender = random.randomBoolean() ? FEMALE_GENDER : MALE_GENDER;
+    let randomNames = randomizer.randomize(firstNamesData, [language, gender]);
+    names.push(randomNames[0]);
+  }
+
+  return names;
+}
 
 /**
  * Gets a list of random first names.
@@ -13,32 +29,14 @@ const random = require("./random");
  * @returns An array of names.
  */
 const firstNames = (language, count, gender) => {
-  count = sanitizeCount(count);
-  const firstNames = assets[language].first;
-
-  let genderNames;
-  if (gender === "female") {
-    genderNames = firstNames.female;
-  } else if (gender === "male") {
-    genderNames = firstNames.male;
+  const path = [language];
+  if (gender === FEMALE_GENDER || gender === MALE_GENDER) {
+    path.push(gender);
   } else {
-    gender = undefined;
+    return randomGender(count, language);
   }
 
-  const names = [];
-  for (let i = 0; i < count; i++) {
-    if (!gender) {
-      genderNames = random.randomBoolean()
-        ? firstNames.female
-        : firstNames.male;
-    }
-
-    const randomIndex = random.randomInt(genderNames.length - 1);
-    const first = genderNames[randomIndex];
-    names.push(first);
-  }
-
-  return names;
+  return randomizer.randomize(firstNamesData, path, count);
 };
 
 exports.firstNames = firstNames;
