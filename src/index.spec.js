@@ -1,5 +1,6 @@
 const grandomize = require("./index");
-const languages = require("./languages");
+const languages = grandomize.languages;
+const english = languages.english;
 
 describe("index", () => {
   it("Module is exported", () => {
@@ -24,7 +25,7 @@ describe("index", () => {
 describe("streets()", () => {
   test("Generate correct number of streets", () => {
     const count = 1000;
-    let randomAddresses = grandomize.streets(languages.english, count);
+    let randomAddresses = grandomize.streets(english, count);
     expect(randomAddresses.length).toEqual(count);
   });
 });
@@ -32,7 +33,7 @@ describe("streets()", () => {
 describe("cities()", () => {
   test("Generate correct number of cities", () => {
     const count = 1000;
-    let randomCities = grandomize.cities(languages.english, count);
+    let randomCities = grandomize.cities(english, count);
     expect(randomCities.length).toEqual(count);
   });
 });
@@ -48,7 +49,7 @@ describe("cheese()", () => {
 describe("lastNames()", () => {
   test("Generate correct number of names", () => {
     const count = 1000;
-    let randomNames = grandomize.lastNames(languages.english, count);
+    let randomNames = grandomize.lastNames(english, count);
     expect(randomNames.length).toEqual(count);
   });
 });
@@ -56,7 +57,7 @@ describe("lastNames()", () => {
 describe("lastNames()", () => {
   test("Generated names are strings", () => {
     const count = 1000;
-    let randomNames = grandomize.lastNames(languages.english, count);
+    let randomNames = grandomize.lastNames(english, count);
     for (let i = 0; i < count; i++) {
       expect(typeof randomNames[i] === "string").toBe(true);
     }
