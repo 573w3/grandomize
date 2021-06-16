@@ -3,11 +3,8 @@
 const names = require("./names");
 const locations = require("./locations");
 const languages = require("./languages");
-const generic = require("./randomizer");
-const lastNameAssets = require("../assets/lastNames.json");
-const streetAssets = require("../assets/streets.json");
-const cityAssets = require("../assets/cities.json");
-const cheeseAssets = require("../assets/cheese.json");
+const randomizer = require("./randomizer");
+const localAssets = require("./assetLoader").localAssets;
 
 const grandomize = {
   firstNames: names.firstNames,
@@ -21,7 +18,7 @@ const grandomize = {
    * @returns {string[]} An array of names.
    */
   lastNames: (language, count) => {
-    return generic.randomize(lastNameAssets, language, count);
+    return randomizer.randomize(localAssets.lastNames, language, count);
   },
 
   /**
@@ -31,7 +28,7 @@ const grandomize = {
    * @returns {string[]} An array of street names.
    */
   streets: (language, count) => {
-    return generic.randomize(streetAssets, language, count);
+    return randomizer.randomize(localAssets.streets, language, count);
   },
 
   addresses: locations.addresses,
@@ -43,26 +40,8 @@ const grandomize = {
    * @returns {string[]} An array of city names.
    */
   cities: (language, count) => {
-    return generic.randomize(cityAssets, language, count);
+    return randomizer.randomize(localAssets.cities, language, count);
   },
-
-  /**
-   * Gets a list of random street names from a remote JSON assets file.
-   * @param assetsUrl URL to a street assets file.
-   * @param language Language in which the names are common.
-   * @param count Optional number of streets generated. Defaults to 1.
-   * @returns Promise for an array of street names.
-   */
-  streetsRemoteAsync: generic.randomizeAsync,
-
-  /**
-   * Gets a list of random city names from a remote JSON assets file.
-   * @param assetsUrl URL to a street assets file.
-   * @param language Language in which the cities are common.
-   * @param count Optional number of streets generated. Defaults to 1.
-   * @returns Promise for an array of street names.
-   */
-  citiesRemoteAsync: generic.randomizeAsync,
 
   /**
    * Gets a list of random cheese names.
@@ -70,9 +49,10 @@ const grandomize = {
    * @returns {string[]} An array of cheese names.
    */
   cheese: (count) => {
-    return generic.randomize(cheeseAssets, null, count);
+    return randomizer.randomize(localAssets.cheese, null, count);
   },
 
+  anythingRemoteAsync: randomizer.randomizeAsync,
   languages: languages,
 };
 

@@ -31,10 +31,14 @@ const randomize = (assets, path, count) => {
 };
 
 /**
- * @param {string} assetsUrl
- * @param {string[] | string | null} path
- * @param {number?} count
- * @returns {Promise<string[]>}
+ * Gets a list of random names of something from a remote JSON assets file.
+ * @param {string} assetsUrl URL to a assets file.
+ * @param {string | string[] | null} path Path, in the JSON, to the string array of names.
+ * A string is the same as an array with only that string.
+ * Null if the JSON is an array of strings.
+ * Example: if the JSON is `{ a: { b: { c: ["name1", "name2", "name3"] } } }` then `path` should be `["a", "b", "c"]`
+ * @param {number?} count Optional number of names generated. Defaults to 1.
+ * @returns {Promise<string[]>} Promise for an array of names.
  */
 const randomizeAsync = (assetsUrl, path, count) => {
   return new Promise((resolve, reject) => {
