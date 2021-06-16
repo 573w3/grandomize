@@ -41,26 +41,4 @@ const firstNames = (language, count, gender) => {
   return names;
 };
 
-// /**
-//  * Gets a list of random last names.
-//  * @param {string} language Language in which the names are common.
-//  * @param {number} count The number of names to randomize.
-//  * Defaults to 1.
-//  * Cap is 1 000 000.
-//  * @returns An array of names.
-//  */
-// const lastNames = (language, count) => {
-//   count = sanitizeCount(count);
-//   const lastNames = assets[language].last;
-
-//   const names = [];
-//   for (let i = 0; i < count; i++) {
-//     const randomIndex = random.randomInt(lastNames.length - 1);
-//     names.push(lastNames[randomIndex]);
-//   }
-
-//   return names;
-// };
-
 exports.firstNames = firstNames;
-// exports.lastNames = lastNames;
