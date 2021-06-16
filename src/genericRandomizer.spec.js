@@ -1,11 +1,34 @@
 const genericRandomizer = require("./genericRandomizer").genericRandomizer;
-const english = require("./languages").english;
+const languages = require("./languages");
 const streets = require("../assets/streets.json");
+const cities = require("../assets/cities.json");
 
 describe("genericRandomizer()", () => {
-  test("Generate correct number of streets", () => {
+  test("Generate correct number of items", () => {
     const count = 1000;
-    const randomStreets = genericRandomizer(streets, english, count);
-    expect(randomStreets.length).toEqual(count);
+    const randomItems = genericRandomizer(streets, languages.english, count);
+    expect(randomItems.length).toEqual(count);
+  });
+});
+
+describe("genericRandomizer()", () => {
+  test("Random items are strings", () => {
+    const count = 1000;
+    let randomItems = genericRandomizer(cities, languages.english, count);
+    for (let i = 0; i < count; i++) {
+      expect(typeof randomItems[i] === "string").toBe(true);
+    }
+  });
+});
+
+describe("genericRandomizer()", () => {
+  test("Generate items of all languages", () => {
+    let success = false;
+    for (const key in languages) {
+      success = true;
+      let randomItems = genericRandomizer(cities, languages[key]);
+      expect(typeof randomItems[0] === "string").toBe(true);
+    }
+    expect(success).toEqual(true);
   });
 });

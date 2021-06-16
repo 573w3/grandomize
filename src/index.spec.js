@@ -44,3 +44,30 @@ describe("cheese()", () => {
     expect(randomCities.length).toEqual(count);
   });
 });
+
+describe("lastNames()", () => {
+  test("Generate correct number of names", () => {
+    const count = 1000;
+    let randomNames = grandomize.lastNames(languages.english, count);
+    expect(randomNames.length).toEqual(count);
+  });
+});
+
+describe("lastNames()", () => {
+  test("Generated names are strings", () => {
+    const count = 1000;
+    let randomNames = grandomize.lastNames(languages.english, count);
+    for (let i = 0; i < count; i++) {
+      expect(typeof randomNames[i] === "string").toBe(true);
+    }
+  });
+});
+
+describe("lastNames()", () => {
+  test("Generate names of all languages", () => {
+    for (const key in languages) {
+      let randomNames = grandomize.lastNames(languages[key]);
+      expect(typeof randomNames[0] === "string").toBe(true);
+    }
+  });
+});

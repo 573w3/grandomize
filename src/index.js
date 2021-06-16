@@ -4,13 +4,25 @@ const names = require("./names");
 const locations = require("./locations");
 const languages = require("./languages");
 const generic = require("./genericRandomizer");
+const lastNameAssets = require("../assets/lastNames.json");
 const streetAssets = require("../assets/streets.json");
 const cityAssets = require("../assets/cities.json");
 const cheeseAssets = require("../assets/cheese.json");
 
 const grandomize = {
   firstNames: names.firstNames,
-  lastNames: names.lastNames,
+
+  /**
+   * Gets a list of random last names.
+   * @param {string} language Language in which the names are common.
+   * @param {number?} count The number of names to randomize.
+   * Defaults to 1.
+   * Cap is 1 000 000.
+   * @returns {string[]} An array of names.
+   */
+  lastNames: (language, count) => {
+    return generic.genericRandomizer(lastNameAssets, language, count);
+  },
 
   /**
    * Gets a list of random street names.
