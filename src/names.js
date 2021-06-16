@@ -1,4 +1,4 @@
-const firstNamesData = require("../assets/firstNames.json");
+const firstNamesData = require("./assetLoader").localAssets.firstNames;
 const sanitizeCount = require("./utils").sanitizeCount;
 const random = require("./random");
 const randomizer = require("./randomizer");

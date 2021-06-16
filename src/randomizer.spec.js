@@ -1,7 +1,7 @@
 const randomize = require("./randomizer").randomize;
 const languages = require("./languages");
-const streets = require("../assets/streets.json");
-const cities = require("../assets/cities.json");
+const streets = require("./assetLoader").localAssets.streets;
+const cities = require("./assetLoader").localAssets.cities;
 
 describe("randomize()", () => {
   test("Generate correct number of items", () => {
