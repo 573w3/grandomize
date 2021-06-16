@@ -21,7 +21,7 @@ const grandomize = {
    * @returns {string[]} An array of names.
    */
   lastNames: (language, count) => {
-    return generic.genericRandomizer(lastNameAssets, language, count);
+    return generic.randomize(lastNameAssets, language, count);
   },
 
   /**
@@ -31,7 +31,7 @@ const grandomize = {
    * @returns {string[]} An array of street names.
    */
   streets: (language, count) => {
-    return generic.genericRandomizer(streetAssets, language, count);
+    return generic.randomize(streetAssets, language, count);
   },
 
   addresses: locations.addresses,
@@ -43,7 +43,7 @@ const grandomize = {
    * @returns {string[]} An array of city names.
    */
   cities: (language, count) => {
-    return generic.genericRandomizer(cityAssets, language, count);
+    return generic.randomize(cityAssets, language, count);
   },
 
   /**
@@ -70,7 +70,7 @@ const grandomize = {
    * @returns {string[]} An array of cheese names.
    */
   cheese: (count) => {
-    return generic.genericRandomizer(cheeseAssets, null, count);
+    return generic.randomize(cheeseAssets, null, count);
   },
 
   languages: languages,

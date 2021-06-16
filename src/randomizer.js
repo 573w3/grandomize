@@ -10,7 +10,7 @@ const assetLoader = require("./assetLoader");
  * @param {number?} count
  * @returns {string[]}
  */
-const genericRandomizer = (assets, language, count) => {
+const randomize = (assets, language, count) => {
   if (language) {
     assets = assets[language];
   }
@@ -35,7 +35,7 @@ const randomizeAsync = (assetsUrl, language, count) => {
   return new Promise((resolve, reject) => {
     assetLoader.getRemoteAssets(assetsUrl).then(
       (json) => {
-        resolve(genericRandomizer(json, language, count));
+        resolve(randomize(json, language, count));
       },
       (error) => {
         reject(error);
@@ -44,5 +44,5 @@ const randomizeAsync = (assetsUrl, language, count) => {
   });
 };
 
-exports.genericRandomizer = genericRandomizer;
+exports.randomize = randomize;
 exports.randomizeAsync = randomizeAsync;

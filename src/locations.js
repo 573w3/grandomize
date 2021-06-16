@@ -12,11 +12,7 @@ const languages = require("./languages");
  * @returns An array of address names.
  */
 const addresses = (language, count) => {
-  const randomStreets = generic.genericRandomizer(
-    streetAssets,
-    language,
-    count
-  );
+  const randomStreets = generic.randomize(streetAssets, language, count);
 
   for (let i = 0; i < randomStreets.length; i++) {
     let street = randomStreets[i];
