@@ -3,7 +3,7 @@
 const names = require("./names");
 const locations = require("./locations");
 const languages = require("./languages");
-const generic = require("./genericRandomizer");
+const generic = require("./randomizer");
 const lastNameAssets = require("../assets/lastNames.json");
 const streetAssets = require("../assets/streets.json");
 const cityAssets = require("../assets/cities.json");
@@ -53,7 +53,7 @@ const grandomize = {
    * @param count Optional number of streets generated. Defaults to 1.
    * @returns Promise for an array of street names.
    */
-  streetsRemoteAsync: generic.genericRandomizerAsync,
+  streetsRemoteAsync: generic.randomizeAsync,
 
   /**
    * Gets a list of random city names from a remote JSON assets file.
@@ -62,7 +62,7 @@ const grandomize = {
    * @param count Optional number of streets generated. Defaults to 1.
    * @returns Promise for an array of street names.
    */
-  citiesRemoteAsync: generic.genericRandomizerAsync,
+  citiesRemoteAsync: generic.randomizeAsync,
 
   /**
    * Gets a list of random cheese names.

@@ -31,7 +31,7 @@ const genericRandomizer = (assets, language, count) => {
  * @param {number?} count
  * @returns {Promise<string[]>}
  */
-const genericRandomizerAsync = (assetsUrl, language, count) => {
+const randomizeAsync = (assetsUrl, language, count) => {
   return new Promise((resolve, reject) => {
     assetLoader.getRemoteAssets(assetsUrl).then(
       (json) => {
@@ -45,4 +45,4 @@ const genericRandomizerAsync = (assetsUrl, language, count) => {
 };
 
 exports.genericRandomizer = genericRandomizer;
-exports.genericRandomizerAsync = genericRandomizerAsync;
+exports.randomizeAsync = randomizeAsync;

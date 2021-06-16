@@ -1,7 +1,7 @@
 "use strict";
 
 const random = require("./random");
-const generic = require("./genericRandomizer");
+const generic = require("./randomizer");
 const streetAssets = require("../assets/streets.json");
 const languages = require("./languages");
 
