@@ -58,6 +58,10 @@ const grandomize = {
 
   anythingRemoteAsync: randomizer.randomizeAsync,
   anythingLocalAsync: randomizer.randomizeLocalAsync,
+
+  /**
+   * Languages natively supported by grandomize.
+   */
   languages: languages,
 };
 

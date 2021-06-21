@@ -26,6 +26,8 @@ const threeSwedishCities = grandomize.cities(language, nrOfCities);
 
 ## API
 
+Code is documented with JSDoc.
+
 `firstNames`
 
 `lastNames`
