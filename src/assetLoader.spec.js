@@ -12,3 +12,14 @@ describe("getRemoteAssets()", () => {
       });
   });
 });
+
+describe("getLocalAssets()", () => {
+  test("Get local asset", () => {
+    return assetLoader
+      .getLocalAssets("./assets/cities.json", "utf8")
+      .then((assets) => {
+        expect(assets.english).toBeDefined();
+        expect(assets.swedish).toBeDefined();
+      });
+  });
+});

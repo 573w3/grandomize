@@ -4,8 +4,12 @@ const names = require("./names");
 const locations = require("./locations");
 const languages = require("./languages");
 const randomizer = require("./randomizer");
-const localAssets = require("./assetLoader").localAssets;
+const nativeAssets = require("./assetLoader").nativeAssets;
 
+/**
+ * Grandomize.
+ * @see [README](https://github.com/573w3/grandomize#readme)
+ */
 const grandomize = {
   firstNames: names.firstNames,
 
@@ -18,7 +22,7 @@ const grandomize = {
    * @returns {string[]} An array of names.
    */
   lastNames: (language, count) => {
-    return randomizer.randomize(localAssets.lastNames, language, count);
+    return randomizer.randomize(nativeAssets.lastNames, language, count);
   },
 
   /**
@@ -28,7 +32,7 @@ const grandomize = {
    * @returns {string[]} An array of street names.
    */
   streets: (language, count) => {
-    return randomizer.randomize(localAssets.streets, language, count);
+    return randomizer.randomize(nativeAssets.streets, language, count);
   },
 
   addresses: locations.addresses,
@@ -40,7 +44,7 @@ const grandomize = {
    * @returns {string[]} An array of city names.
    */
   cities: (language, count) => {
-    return randomizer.randomize(localAssets.cities, language, count);
+    return randomizer.randomize(nativeAssets.cities, language, count);
   },
 
   /**
@@ -49,7 +53,7 @@ const grandomize = {
    * @returns {string[]} An array of cheese names.
    */
   cheese: (count) => {
-    return randomizer.randomize(localAssets.cheese, null, count);
+    return randomizer.randomize(nativeAssets.cheese, null, count);
   },
 
   anythingRemoteAsync: randomizer.randomizeAsync,

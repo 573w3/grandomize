@@ -38,7 +38,7 @@ const randomize = (assets, path, count) => {
  * Null if the JSON is an array of strings.
  * Example: if the JSON is `{ a: { b: { c: ["name1", "name2", "name3"] } } }` then `path` should be `["a", "b", "c"]`
  * @param {number?} count Optional number of names generated. Defaults to 1.
- * @returns {Promise<string[]>} Promise for an array of names.
+ * @returns {Promise<string[]>} Promise of an array of names.
  */
 const randomizeAsync = (assetsUrl, path, count) => {
   return new Promise((resolve, reject) => {
