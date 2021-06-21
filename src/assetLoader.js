@@ -28,11 +28,11 @@ const getRemoteAssets = (url) => {
   });
 };
 
-const getLocalAssets = (path, encoding) => {
+const getLocalAssets = (path) => {
   return new Promise((resolve, reject) => {
-    fs.readFile(path, encoding, (error, data) => {
+    fs.readFile(path, null, (error, data) => {
       if (error) {
-        reject();
+        reject(error);
       } else {
         resolve(JSON.parse(data));
       }

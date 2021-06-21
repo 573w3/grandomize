@@ -57,6 +57,7 @@ const grandomize = {
   },
 
   anythingRemoteAsync: randomizer.randomizeAsync,
+  anythingLocalAsync: randomizer.randomizeLocalAsync,
   languages: languages,
 };
 

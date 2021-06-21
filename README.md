@@ -34,6 +34,12 @@ const threeSwedishCities = grandomize.cities(language, nrOfCities);
 
 `addresses`
 
-`citites`
+`cities`
+
+`cheese`
+
+`anythingRemoteAsync`
+
+`anythingLocalAsync`
 
 `languages`
