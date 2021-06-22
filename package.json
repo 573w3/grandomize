@@ -1,6 +1,6 @@
 {
   "name": "grandomize",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "type": "commonjs",
   "description": "Data randomizer CommonJS module.",
   "keywords": [
