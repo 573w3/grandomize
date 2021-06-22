@@ -106,7 +106,6 @@
     "Göteborg",
     "Malmö",
     "Uppsala",
-    "Upplands Väsby och Sollentuna",
     "Västerås",
     "Örebro",
     "Linköping",
@@ -126,7 +125,6 @@
     "Östersund",
     "Trollhättan",
     "Luleå",
-    "Nordöstra Göteborg",
     "Lidingö",
     "Borlänge",
     "Tumba",
@@ -201,6 +199,8 @@
     "Stenungsund",
     "Lomma",
     "Vetlanda",
-    "Sala"
+    "Sala",
+    "Fagersta",
+    "Laholm"
   ]
 }
