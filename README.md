@@ -36,17 +36,43 @@ Code is also documented with JSDoc.
 
 ### Functions
 
-`firstNames`
+The regular randomizer functions.
 
-`lastNames`
+**firstNames**
 
-`streets`
+```js
+const firstNames = firstNames("english", 3);
+```
 
-`addresses`
+**lastNames**
 
-`cities`
+```js
+const lastNames = lastNames("english", 3);
+```
 
-`cheese`
+**streets**
+
+```js
+const streets = streets("english", 3);
+```
+
+**addresses**
+
+```js
+const addresses = addresses("english", 3);
+```
+
+**cities**
+
+```js
+const cities = cities("english", 3);
+```
+
+**cheese**
+
+```js
+const cheese = cheese(3);
+```
 
 #### Custom data
 
@@ -54,11 +80,13 @@ These functions provide the ability to randomize items from custom data. The dat
 
 Provide a location (local/remote), a path in the JSON structure and a number items to generate.
 
-`anythingRemoteAsync` For remote data files.
+**anythingRemoteAsync** For remote data files.
 
-`anythingLocalAsync` For local data files.
+**anythingLocalAsync** For local data files.
 
 **Examples**
+
+<small>JSON file remote at URL _url.to.json_</small>
 
 ```JSON
 ["list", "of", "strings"]
@@ -70,6 +98,8 @@ const items = anythingRemoteAsync("url.to.json", null, nrOfItems);
 ```
 
 ---
+
+<small>JSON file on disc at location _/my/data/data.json_</small>
 
 ```JSON
 {
@@ -85,6 +115,8 @@ const barItems = anythingLocalAsync("/my/data/data.json", "bar", nrOfItems);
 ```
 
 ---
+
+<small>JSON file remote at URL _url.to.json_</small>
 
 ```JSON
 {
@@ -109,4 +141,4 @@ const barItems = anythingRemoteAsync(
 
 ### Constants
 
-`languages` The languages known by _grandomize_. Used in functions with a _language_ parameter.
+The **languages** constant holds all languages known by _grandomize_. Used in functions with a _language_ parameter.
